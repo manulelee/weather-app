@@ -12,6 +12,7 @@ body {
   width: 100vw;
   position: relative;
   padding-bottom: 6em;
+  background-color: #e0d8de;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
@@ -20,31 +21,34 @@ code {
   width: 100%;
 }
 
-#forecastCard .fs-smaller {
+#spotForecast .fs-smaller {
   font-size: 0.8em;
 }
 
 #navbar #brand {
   font-family: "Anton", sans-serif;
-  color: white;
   font-size: 1.8em;
   font-style: italic;
+  color: #034a66;
 }
 #navbar,
 #footer {
-  background-color: rgb(3, 74, 102);
+  background-color: white;
+  color: black;
+  border: 0px 2px solid rgba(224, 216, 222, 0.5);
 }
 
 #navbar input {
   padding-left: 3em;
   border-radius: 18px;
   padding: 2em;
-  background-color: rgba(0, 0, 0, 0.419);
-  color: rgba(255, 255, 255, 0.615);
+  background-color: #e0d8de50;
+  color: #034a66;
+  min-width: 180px !important;
 }
 
 #navbar input::placeholder {
-  color: rgba(255, 255, 255, 0.615);
+  color: #034a66;
 }
 
 #footer {
@@ -52,13 +56,83 @@ code {
   bottom: 0;
   width: 100%;
   font-size: 0.7em;
+  color: #034a66;
 }
 
 #footer a {
-  color: white;
+  color: #05b2dc;
   text-decoration: none;
 }
 
-div .card {
-  border: 4px solid rgb(3, 74, 102);
+.lightBlue {
+  color: #05b2dc !important;
+}
+
+.darkBlue {
+  color: #034a66 !important;
+}
+.darkBlueBackground {
+  background-color: #034a66 !important;
+}
+
+.green {
+  color: #036016 !important;
+}
+
+.darkGreen {
+  color: #03440c !important;
+}
+.gray {
+  color: #e0d8de !important;
+}
+
+.yellow {
+  color: #ffb703 !important;
+}
+
+.orange {
+  color: #ff715b !important;
+}
+
+.red {
+  color: #af3b6e !important;
+}
+
+.purple {
+  color: #7a3b69 !important;
+}
+
+#spotPreview {
+  font-size: 0.8em;
+  font-weight: 600;
+}
+
+#spotPreview .card-title,
+#spotForecast .card-title {
+  font-size: 2.2em;
+  font-weight: 800;
+}
+#spotForecast {
+  width: 90%;
+  margin: 0 auto;
+}
+.swellLabel,
+.windLabel {
+  font-weight: 600;
+  font-size: 0.8em;
+}
+
+.swellValue,
+.windValue {
+  font-weight: 900;
+  font-size: 3em;
+}
+
+#conditionRate h6 {
+  font-size: 1.4em;
+  font-weight: 800;
+}
+
+button.darkBlueBackground.active {
+  background-color: #034a66cd !important;
 }

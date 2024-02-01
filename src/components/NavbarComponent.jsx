@@ -6,7 +6,7 @@ import Navbar from "react-bootstrap/Navbar";
 
 function NavbarComponent({ setQuery, query, selectSpot }) {
   return (
-    <Navbar expand="md" id="navbar">
+    <Navbar id="navbar">
       <Container fluid>
         <Navbar.Brand
           onClick={() => {
@@ -14,8 +14,9 @@ function NavbarComponent({ setQuery, query, selectSpot }) {
             setQuery("");
           }}
           id="brand"
+          className="fw-bold blue"
         >
-          <TbWaveSine /> WaveCheck SRDN
+          <TbWaveSine className="lightBlue" /> WaveCheck
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll" className="justify-content-end">
