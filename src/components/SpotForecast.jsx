@@ -1,19 +1,23 @@
-import { useQuery } from "@tanstack/react-query";
-import { getSpotMarineWeather, getSpotWeather } from "../utils/http";
-import { Button, ButtonGroup, Card, Col, Row } from "react-bootstrap";
+import "react-multi-carousel/lib/styles.css";
 import Carousel from "react-multi-carousel";
+import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Button, ButtonGroup, Card, Col, Row } from "react-bootstrap";
 import { ClipLoader } from "react-spinners";
 import { FaLongArrowAltUp } from "react-icons/fa";
 import { LuSunrise, LuSunset } from "react-icons/lu";
 import { WiBarometer, WiCloudy, WiHumidity, WiThermometer } from "react-icons/wi";
-
-import "react-multi-carousel/lib/styles.css";
+import { FaStar } from "react-icons/fa";
+import { addToFavorites, removeFromFavorites } from "../store/favouriteSlice";
+import { getSpotMarineWeather, getSpotWeather } from "../utils/http";
 import CurrentCondition from "./CurrentCondition";
-import { useState } from "react";
 import ConditionEvaluation from "./ConditionEvaluation";
 
-const SpotForecast = ({ province, locality, name, latitude, longitude, mapLink }) => {
+const SpotForecast = ({ province, locality, name, latitude, longitude, mapLink, id }) => {
   const [forecastType, setForecastType] = useState("Daily");
+  const dispatch = useDispatch();
+  const favorites = useSelector((state) => state.favorites);
 
   const {
     isError: isErrorMarine,
@@ -47,6 +51,16 @@ const SpotForecast = ({ province, locality, name, latitude, longitude, mapLink }
     refetchInterval: 36000000,
     retry: false,
   });
+
+  const isInFavorites = favorites.some((fav) => fav.id === id);
+
+  const handleFavorite = (spot) => {
+    if (isInFavorites) {
+      dispatch(removeFromFavorites(spot));
+    } else {
+      dispatch(addToFavorites(spot));
+    }
+  };
 
   const responsive = {
     xxl: {
@@ -87,6 +101,22 @@ const SpotForecast = ({ province, locality, name, latitude, longitude, mapLink }
         <Card.Title className="my-1 text-center">
           {name} ({province})
         </Card.Title>
+        <div className="text-end fs-3">
+          <FaStar
+            className={isInFavorites ? "yellow" : undefined}
+            onClick={() =>
+              handleFavorite({
+                province,
+                locality,
+                name,
+                latitude,
+                longitude,
+                mapLink,
+                id,
+              })
+            }
+          />
+        </div>
         <hr />
         {isErrorMarine && (
           <div className="text-center my-24 mx-auto">

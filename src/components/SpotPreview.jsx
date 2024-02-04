@@ -5,7 +5,7 @@ import { ClipLoader } from "react-spinners";
 import CurrentCondition from "./CurrentCondition";
 import ConditionEvaluation from "./ConditionEvaluation";
 
-const SpotPreview = ({ province, locality, name, latitude, longitude, mapLink, selectSpot }) => {
+const SpotPreview = ({ province, locality, name, latitude, longitude, mapLink, id, selectSpot }) => {
   const {
     isError: isErrorMarine,
     isLoading: isLoadingMarine,
@@ -46,7 +46,7 @@ const SpotPreview = ({ province, locality, name, latitude, longitude, mapLink, s
     <Card
       id="spotPreview"
       className="shadow my-2"
-      onClick={() => selectSpot({ province, locality, name, latitude, longitude, mapLink })}
+      onClick={() => selectSpot({ province, locality, name, latitude, longitude, mapLink, id })}
     >
       <Card.Body>
         <Card.Title className="ms-2">{name}</Card.Title>
