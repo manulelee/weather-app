@@ -25,7 +25,7 @@ function NavbarComponent({ setQuery, query, selectSpot }) {
               id="searchBar"
               type="text"
               className=" border-0 py-2 w-50"
-              placeholder="search spot..."
+              placeholder="search..."
               aria-label="Search query"
               aria-describedby="basic-addon2"
               value={query}

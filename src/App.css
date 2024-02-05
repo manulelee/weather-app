@@ -27,7 +27,7 @@ code {
 
 #navbar #brand {
   font-family: "Anton", sans-serif;
-  font-size: 1.8em;
+  font-size: 1.6em;
   font-style: italic;
   color: #034a66;
 }
@@ -44,7 +44,7 @@ code {
   padding: 2em;
   background-color: #e0d8de50;
   color: #034a66;
-  min-width: 180px !important;
+  min-width: 120px !important;
 }
 
 #navbar input::placeholder {

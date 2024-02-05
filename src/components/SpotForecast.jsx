@@ -117,6 +117,16 @@ const SpotForecast = ({ province, locality, name, latitude, longitude, mapLink, 
             }
           />
         </div>
+        <iframe
+          className="mt-3"
+          id="map"
+          title="map"
+          src={mapLink}
+          style={{ width: "100%", aspectRatio: "3/1" }}
+          allowFullScreen={true}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
         <hr />
         {isErrorMarine && (
           <div className="text-center my-24 mx-auto">
@@ -265,16 +275,6 @@ const SpotForecast = ({ province, locality, name, latitude, longitude, mapLink, 
           </>
         )}
       </Card.Body>
-      <iframe
-        className="mt-3"
-        id="map"
-        title="map"
-        src={mapLink}
-        style={{ width: "100%", aspectRatio: "3/1" }}
-        allowFullScreen={true}
-        loading="eager"
-        referrerPolicy="no-referrer-when-downgrade"
-      ></iframe>
     </Card>
   );
 };
